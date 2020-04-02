@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int somme_ligne;                         //  Déclaration des fonctions qui calcule les sommes des lignes des colonnes et des diagonales
+int somme_colonne;
+int somme_diagonale;
+int resultat; 
+int i;
+
+int carre_magique[9]={8,1,6,3,5,7,4,9,2};
+
+int main()
+{
+     somme_ligne=(carre_magique[0]+carre_magique[1]+carre_magique[2]);    ////////////// Calcul des sommes des 3  lignes  
+     printf("la somme de la premiere ligne est %d",somme_ligne);
+     somme_ligne=(carre_magique[3]+carre_magique[4]+carre_magique[5]);
+     printf("\nla somme de la deuxieme ligne est %d",somme_ligne);
+     somme_ligne=(carre_magique[6]+carre_magique[7]+carre_magique[8]);
+     printf("\nla somme de la troisieme ligne est %d",somme_ligne);
+
+     somme_colonne=(carre_magique[0]+carre_magique[3]+carre_magique[6]);     //////////////Calcul des sommes des 3 colonnes
+     printf("\nla somme de la premiere colonne est %d",somme_colonne);
+     somme_colonne=(carre_magique[1]+carre_magique[4]+carre_magique[7]);
+     printf("\nla somme de la deuxieme colonne est %d",somme_colonne);
+     somme_colonne=(carre_magique[2]+carre_magique[5]+carre_magique[8]);
+     printf("\nla somme de la troisieme colonne est %d",somme_colonne);
+
+     somme_diagonale=(carre_magique[0]+carre_magique[4]+carre_magique[8]);       ////////////Calcul des sommes des diagonales
+     printf("\nla somme de la premiere diagonale est %d",somme_diagonale);
+     somme_diagonale=(carre_magique[2]+carre_magique[4]+carre_magique[6]);
+     printf("\nla somme de la deuxieme diagonale est %d",somme_diagonale);
+
+     if(somme_ligne == 15) resultat = 1  ;                           ////la fonction est comparer avec 15 -15 ou 0 et permet de savoir si quelqun a gagner  
+     if(somme_ligne == -15) resultat = -1;
+     if((somme_ligne !=15) && (somme_ligne != -15))  resultat = 0;
+
+     if(somme_colonne == 15) resultat = 1;
+     if(somme_colonne == -15) resultat = -1;
+     if((somme_colonne !=15) && (somme_colonne != -15))  resultat = 0;
+
+     if(somme_diagonale == 15) resultat = 1;
+     if(somme_diagonale == -15) resultat = -1;
+     if((somme_diagonale !=15) && (somme_diagonale != -15))  resultat = 0;
+
+     if(resultat==1) printf("\nBravo le joueur 1 a gagner!");                   ////////affichage du resultat avec un printf qui permet de le feliciter 
+     if(resultat==-1) printf("\nBravo le joueur 2 a gagner!");
+     if(resultat==0) printf("\nEgaliter personne ne gagne");
+}
+
+
+/*Les tests que jai effectués:
+jai changer les valeurs du carre magiques qui font une sommes de 15 puis de -15 puis d'une valeur differentes de 15 et -15 pour voir si
+mon programme fonctionnait bien (preuve dans les pieces jointes de quelques tests)
