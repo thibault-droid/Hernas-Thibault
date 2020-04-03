@@ -1,0 +1,96 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int i,j=0,sommeligne,sommecolonne,sommediagonale,cpt=0;
+int carre_magique[9]={8,1,6,3,5,7,4,9,2};
+int tab1[9]={1,2,3,4,5,6,7,8,9};
+int issue;
+
+
+int somme_ligne(void)                                  ////////debut de la fonction du calcul de ligne
+{
+for (i=0;i<3;i++)
+    {
+       j = i*3+1;
+       sommeligne =(tab1[j]+tab1[j+1]+tab1[j+2]);    ///////// permet davoir la ligne complete
+       if (sommeligne == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");   /// petite question a partir dici je ne sait pas si c tres interressant de garder les printf
+           return 1;
+           issue=1;
+       }
+       if (sommeligne == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+    }
+}
+int somme_colonne(void)                              ///// meme chose pour le calcul de la somme des colonnes
+{
+for (i=0;i<3;i++)
+    {
+       j = i*1+1;
+       sommecolonne =(tab1[j]+tab1[j+3]+tab1[j+6]);  ////permet d'avoir les index des colonnes exactes
+       if (sommecolonne == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommecolonne == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+    }
+}
+    int somme_diagonale(void)                            /////fonction pour la somme des diagonales
+    {
+       j=1;                                             /// j vaut 1 pour avoir le premier index du tableau 
+       sommediagonale =(tab1[j]+tab1[j+4]+tab1[j+8]);   //// on ajoute 4 puis 8 pour avoir les dernieres cases de la diagonale
+       if (sommediagonale == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommediagonale == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+
+       j=3;                                                  ////ici j vaut 3 pour la premiere case de la diagonale 
+       sommediagonale =(tab1[j]+tab1[j+2]+tab1[j+4]);
+       if (sommediagonale == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommediagonale == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+    }
+
+    int main()
+    {}
