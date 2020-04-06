@@ -1,0 +1,162 @@
+#include <stdio.h>
+#include <stdlib.h>
+//#include <time.h>
+
+
+int i,j=0,sommeligne,sommecolonne,sommediagonale, cpt=0;
+int carre_magique[9]={8,1,6,3,5,7,4,9,2};
+int tab1[9]={1,2,3,4,5,6,7,8,9};
+int issue,somme;
+short joueur,retour;
+T_branche arbre1[9];
+
+int test_case(int carre_magique[i])
+{
+        if(carre_magique[i]>0) return 1;
+        if(carre_magique[i]<0) return -1;
+        if(carre_magique[i]==0) return 0;
+}
+
+int test_case_vide(void)
+{
+    for(i=0;i<8;i++)
+    {
+        if(test_case(tab1)==0) return 0;
+        if(test_case(tab1)!=0) cpt = cpt+1;
+
+     if(cpt==9) return 1;
+    }
+}
+int valeur_carre(i)                                  ////Jai avancé sur la fonction d'exploration mais ils restes encore beaucoup d'erreurs 
+{
+    carre_magique[case] = indiceCarre[case]*joueur;
+}
+T_branche arbre1[9];
+
+for (i=1;i<9;i++)
+{
+    retour = explore(i,1,&arbre1[i]);
+}
+int explore(int case_tab, int joueur, char *tab)
+{
+    T_branche* monTableau;
+    int compte = 0;
+    carre_magique[case] = indiceCarre[case]*joueur;
+    if(issue==0)
+    {
+     for(i=1;i<9;i++)
+     {
+       retour = test_case(i);
+       if(retour == 0) compte++;
+     }
+      monTableau = (T_branche*) malloc (compte*sizeof(T_branche));
+      for(i=1;i<9;i++)
+     {
+      retour = test_case(i);
+      if(retour==0)
+     {
+      (monTableau+j)->caseSuivante = i;
+      retour = explore(i,-joueur,monTableau+j);
+     }
+      for(i=1;i<9;i++)
+     {
+      somme = somme + (monTableau+j)->somme;
+     }
+      branche ->somme = somme;
+      branche ->brancheSuivante = monTableau;
+      retour = 0;
+     }
+      else retour = issue;
+      carre_magique[case]=0;
+      return retour;
+     }
+}
+
+
+int somme_ligne(void)
+{
+for (i=0;i<3;i++)
+    {
+       j = i*3+1;
+       sommeligne =(tab1[j]+tab1[j+1]+tab1[j+2]);
+       if (sommeligne == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommeligne == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+    }
+}
+int somme_colonne(void)
+{
+for (i=0;i<3;i++)
+    {
+       j = i*1+1;
+       sommecolonne =(tab1[j]+tab1[j+3]+tab1[j+6]);
+       if (sommecolonne == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommecolonne == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+    }
+}
+    int somme_diagonale(void)
+    {
+       j=1;
+       sommediagonale =(tab1[j]+tab1[j+4]+tab1[j+8]);
+       if (sommediagonale == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommediagonale == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+
+       j=3;
+       sommediagonale =(tab1[j]+tab1[j+2]+tab1[j+4]);
+       if (sommediagonale == 15)
+       {
+           printf("\nBravo le joueur 1 a gagner!");
+           return 1;
+           issue=1;
+       }
+       if (sommediagonale == -15)
+       {
+           printf("\nBravo le joueur 2 a gagner!");
+           return -1;
+           issue=-1;
+       }
+           printf("\nEgaliter personne ne gagne");
+           return 0;
+           issue=0;
+    }
+
+    int main()
+    {}
