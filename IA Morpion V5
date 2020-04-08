@@ -1,0 +1,44 @@
+int main()
+    {
+        int carre_magique[9] = {8,1,6,3,5,7,4,9,2}, damier[9] , resultat_exploration[9] ,result = 2 , joueur = 1 ,  tour, i,j,compte ;
+
+
+        for(tour = 1 ; tour < 10 ; tour ++ )
+        {
+            if(joueur == 1 )
+            {
+            joueur = -1 ;
+            }
+
+            else if(joueur == -1)
+            {
+                for(i = 0 ; i<8 ; i++)
+                    {
+                        for(j=0;j<9;j++) if((occupe_case(damier,i)) == 0 )compte++ ; 
+                        damier=(T_branche*) malloc (compte-sizeof (T_branche));                      
+                        for(j=0;j<compte;j++)
+                        {
+                            damier[i].case_suivante=j;
+                            damier[i].somme=0;
+                    }    
+            }
+                                      case_a_jouer = gestion_resultats() ; // organise le tableau resultat_exploration avec la meilleure option en indice 0 (case à jouer)
+                                      damier[case_a_jouer] = joueur * carre_magique[case_a_jouer] ;
+                                  }
+
+            if(tour > 4)
+            {
+                if(result_jeu(damier) == 1)
+                    {printf("l'humain remporte la victoire ! " ) ;
+                     return 0 ;
+                    }
+                else if(result_jeu(damier) == -1)
+                    {printf("l'ordinateur remporte la victoire ! " ) ;
+                    return 0 ;
+                    }
+            }
+
+        }
+
+        return 0 ;
+    }
